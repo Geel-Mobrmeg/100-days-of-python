@@ -1,0 +1,46 @@
+On Computable Numbers, and the Analytical Engine
+================================================
+
+The Analytical Engine has no pretensions whatever to originate anything. It
+can do whatever we know how to order it to perform. It can follow analysis;
+but it has no power of anticipating any analytical relations or truths. Its
+province is to assist us in making available what we are already acquainted
+with.
+
+We may say most aptly that the Analytical Engine weaves algebraical patterns
+just as the Jacquard loom weaves flowers and leaves. The engine is not a
+thinking machine; it is a machine that can be directed, and the direction is
+the whole of the art. A machine that could be directed to do one thing could,
+by the same means, be directed to do another, and the difference between the
+two would be only a difference of instruction.
+
+Supposing, for instance, that the fundamental relations of pitched sounds in
+the science of harmony were susceptible of such expression and adaptations,
+the engine might compose elaborate and scientific pieces of music of any
+degree of complexity or extent. This is not a prophecy about music. It is a
+prophecy about generality: that a machine which manipulates symbols can
+manipulate anything that symbols can represent, which is everything we can
+say precisely.
+
+Many people believe that a machine cannot be original, that it can only do
+what it is told. This is true, and it is also true of a person who has only
+ever been told things. The interesting question is not whether the machine
+originates, but whether the distinction between originating and following
+instructions survives contact with a sufficiently long instruction.
+
+We cannot ask a machine to be intelligent and also insist that it be
+predictable in every particular, any more than we can ask it of a student.
+If a machine is expected to be infallible, it cannot also be intelligent.
+There are several mathematical theorems which say almost exactly that. But
+these theorems say nothing about how much intelligence may be displayed if a
+machine makes no pretence at infallibility.
+
+The reader will have noticed that the words used here are ordinary words. The
+argument does not depend on any special vocabulary, and it should not. An
+argument that cannot be made in ordinary words is usually an argument that
+has not yet been made at all. Precision is not the same thing as jargon, and
+a great deal of what passes for rigour is only the second.
+
+It is possible that this text, being about machines and language and the
+counting of things, contains an unusually high number of the words machine,
+engine, and word. That is convenient, because it is about to be counted.
