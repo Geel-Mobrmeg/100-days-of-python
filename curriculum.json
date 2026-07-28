@@ -1,0 +1,1530 @@
+{
+ "copy": {
+  "pageTitle": "100 Days of Python Code \u2014 Curriculum & Learning Path",
+  "eyebrow": "Self-paced curriculum \u00b7 v1",
+  "title": "100 days of python code",
+  "deck": "One hundred consecutive days, each one a single sitting: something to learn, something to build. Starts at <strong>installing Python</strong>, ends with a <strong>deployed full-stack app</strong> and a package on PyPI. No day depends on anything you haven't already written yourself.",
+  "facts": [
+   [
+    "100",
+    "days"
+   ],
+   [
+    "10",
+    "phases"
+   ],
+   [
+    "100",
+    "builds"
+   ],
+   [
+    "~152",
+    "hours total"
+   ],
+   [
+    "60\u201390",
+    "min, regular day"
+   ]
+  ],
+  "closingTitle": "How to run it",
+  "closing": [
+   {
+    "h": "One sitting, one commit",
+    "p": "Finish the build before you close the editor, then commit it. The repo becomes the proof \u2014 a hundred small, dated, working programs."
+   },
+   {
+    "h": "Missing a day is fine",
+    "p": "Skipping the build is not. The order matters far more than the calendar; pick the streak back up on the day you left it."
+   },
+   {
+    "h": "Type the examples",
+    "p": "Reading Python is not writing Python. Every concept listed on a day should appear in something you typed yourself that day."
+   },
+   {
+    "h": "Break the builds",
+    "p": "When a build works, change one thing until it fails, and read the traceback. Ten extra minutes here is worth an hour of tutorials."
+   }
+  ],
+  "footer": "100 Days of Python Code \u2014 curriculum & learning path"
+ },
+ "phases": [
+  {
+   "name": "Foundations",
+   "days": [
+    1,
+    10
+   ],
+   "outcome": "Get Python running and get comfortable with the four things every later day is made of: <b>values, names, expressions and output</b>. No libraries, no frameworks \u2014 just you and the interpreter.",
+   "gain": [
+    "REPL & scripts",
+    "variables",
+    "strings",
+    "numbers",
+    "input",
+    "PEP 8",
+    "reading tracebacks"
+   ],
+   "milestone": "A scored command-line quiz"
+  },
+  {
+   "name": "Control flow",
+   "days": [
+    11,
+    20
+   ],
+   "outcome": "Teach your programs to <b>decide and repeat</b>. By the end of this phase you can express any procedure a human could follow by hand.",
+   "gain": [
+    "if / elif / else",
+    "while",
+    "for & range",
+    "break & continue",
+    "nested loops",
+    "match",
+    "randomness"
+   ],
+   "milestone": "A playable text adventure"
+  },
+  {
+   "name": "Data structures",
+   "days": [
+    21,
+    30
+   ],
+   "outcome": "Stop juggling loose variables. Learn the four containers Python programs are actually built out of, and <b>which one to reach for</b> when.",
+   "gain": [
+    "lists",
+    "comprehensions",
+    "tuples",
+    "dicts",
+    "sets",
+    "sorting",
+    "nested data",
+    "Big-O intuition"
+   ],
+   "milestone": "An expense tracker with monthly reports"
+  },
+  {
+   "name": "Functions & modular code",
+   "days": [
+    31,
+    40
+   ],
+   "outcome": "Turn scripts into <b>reusable pieces</b>. Arguments, scope, decorators and generators \u2014 the tools that let a program grow past one file without collapsing.",
+   "gain": [
+    "def & return",
+    "*args / **kwargs",
+    "scope & closures",
+    "recursion",
+    "decorators",
+    "generators",
+    "packages"
+   ],
+   "milestone": "Your own installable utility toolkit"
+  },
+  {
+   "name": "Object-oriented Python",
+   "days": [
+    41,
+    50
+   ],
+   "outcome": "Model the problem instead of the procedure. Classes, dunder methods and dataclasses \u2014 plus <b>when not to use inheritance</b>, which matters more than the syntax.",
+   "gain": [
+    "classes",
+    "dunder methods",
+    "inheritance",
+    "composition",
+    "properties",
+    "dataclasses",
+    "protocols"
+   ],
+   "milestone": "An object-modelled inventory system"
+  },
+  {
+   "name": "Robust code",
+   "days": [
+    51,
+    60
+   ],
+   "outcome": "The phase that separates scripts from software: <b>errors you handle, files you read, tests that prove it works</b>, and types that catch mistakes before you run it.",
+   "gain": [
+    "exceptions",
+    "context managers",
+    "files & CSV",
+    "JSON",
+    "pathlib",
+    "pytest",
+    "fixtures",
+    "type hints"
+   ],
+   "milestone": "A fully tested, typed CLI tool"
+  },
+  {
+   "name": "The outside world",
+   "days": [
+    61,
+    70
+   ],
+   "outcome": "Python's real advantage is its standard library and its ecosystem. Dates, regex, HTTP, real CLIs, logging, environments and Git \u2014 <b>the working day-to-day kit</b>.",
+   "gain": [
+    "datetime",
+    "regex",
+    "argparse",
+    "logging",
+    "requests",
+    "REST APIs",
+    "scraping",
+    "venv & pip",
+    "git"
+   ],
+   "milestone": "A live API-powered terminal dashboard"
+  },
+  {
+   "name": "Data & analysis",
+   "days": [
+    71,
+    80
+   ],
+   "outcome": "Handle data at a scale loops can't. NumPy for arrays, pandas for tables, matplotlib for the picture, SQL for the source \u2014 and <b>a written conclusion</b> at the end.",
+   "gain": [
+    "NumPy",
+    "broadcasting",
+    "pandas",
+    "cleaning",
+    "groupby",
+    "joins",
+    "matplotlib",
+    "SQL",
+    "notebooks"
+   ],
+   "milestone": "A full data analysis report"
+  },
+  {
+   "name": "Web & APIs",
+   "days": [
+    81,
+    90
+   ],
+   "outcome": "Put your work behind a URL. Flask for pages, FastAPI for services, SQLAlchemy for storage, auth for users \u2014 and a <b>real deployment</b> at the end of it.",
+   "gain": [
+    "HTTP",
+    "Flask & Jinja",
+    "forms",
+    "SQLAlchemy",
+    "FastAPI",
+    "Pydantic",
+    "auth & JWT",
+    "Docker",
+    "deploy"
+   ],
+   "milestone": "A deployed full-stack application"
+  },
+  {
+   "name": "Scale & craft",
+   "days": [
+    91,
+    100
+   ],
+   "outcome": "The professional layer: <b>concurrency, profiling, packaging, CI and code review</b>. Ends with a project that is entirely yours, shipped the way real projects ship.",
+   "gain": [
+    "threads",
+    "multiprocessing",
+    "async/await",
+    "profiling",
+    "design patterns",
+    "packaging",
+    "CI",
+    "open source"
+   ],
+   "milestone": "Capstone \u2014 ship your own project"
+  }
+ ],
+ "days": [
+  {
+   "d": 1,
+   "t": "First contact",
+   "k": [
+    "installing Python",
+    "the REPL vs. a script",
+    "print()",
+    "running a .py file",
+    "your editor"
+   ],
+   "b": "A program that prints your name inside an ASCII frame it draws to fit.",
+   "m": 60
+  },
+  {
+   "d": 2,
+   "t": "Variables and types",
+   "k": [
+    "assignment",
+    "int, float, str, bool",
+    "dynamic typing",
+    "type()",
+    "None"
+   ],
+   "b": "A temperature converter that handles Celsius, Fahrenheit and Kelvin in both directions.",
+   "m": 60
+  },
+  {
+   "d": 3,
+   "t": "Strings",
+   "k": [
+    "indexing",
+    "slicing",
+    "concatenation",
+    "escape sequences",
+    "immutability"
+   ],
+   "b": "An initials extractor that turns any full name into a set of initials.",
+   "m": 70
+  },
+  {
+   "d": 4,
+   "t": "String methods and f-strings",
+   "k": [
+    "upper / lower / strip",
+    "split & join",
+    "replace",
+    "f-strings",
+    "format specs"
+   ],
+   "b": "A receipt printer that aligns item names, quantities and prices into clean columns.",
+   "m": 75
+  },
+  {
+   "d": 5,
+   "t": "Numbers and operators",
+   "k": [
+    "arithmetic",
+    "// and %",
+    "**",
+    "precedence",
+    "the math module",
+    "round()"
+   ],
+   "b": "A bill splitter that handles tips, uneven shares and rounds to real currency.",
+   "m": 70
+  },
+  {
+   "d": 6,
+   "t": "Input and type conversion",
+   "k": [
+    "input()",
+    "casting",
+    "why input is always a string",
+    "basic validation"
+   ],
+   "b": "An interactive BMI calculator that refuses nonsense input instead of crashing.",
+   "m": 70
+  },
+  {
+   "d": 7,
+   "t": "Booleans and comparison",
+   "k": [
+    "truthiness",
+    "== vs. is",
+    "and / or / not",
+    "chained comparison",
+    "short-circuiting"
+   ],
+   "b": "A password strength checker that reports which rules a password fails.",
+   "m": 75
+  },
+  {
+   "d": 8,
+   "t": "Style, comments and PEP 8",
+   "k": [
+    "naming conventions",
+    "docstrings",
+    "line length",
+    "black",
+    "ruff"
+   ],
+   "b": "Take a deliberately ugly 60-line script and refactor it until ruff is silent.",
+   "m": 60
+  },
+  {
+   "d": 9,
+   "t": "Reading tracebacks",
+   "k": [
+    "stack traces",
+    "common error types",
+    "print debugging",
+    "breakpoint()",
+    "rubber-ducking"
+   ],
+   "b": "Five broken scripts, five bugs. Fix all of them and write down what each error meant.",
+   "m": 75
+  },
+  {
+   "d": 10,
+   "t": "Milestone \u2014 command-line quiz",
+   "k": [
+    "combining everything so far",
+    "program structure",
+    "scoring",
+    "user feedback"
+   ],
+   "b": "A ten-question quiz that asks, scores, gives feedback per answer and prints a final grade.",
+   "m": 150,
+   "cap": true
+  },
+  {
+   "d": 11,
+   "t": "if, elif, else",
+   "k": [
+    "branching",
+    "nesting",
+    "guard clauses",
+    "the ternary expression"
+   ],
+   "b": "A grade calculator that turns any percentage into a letter, with boundary cases handled.",
+   "m": 65
+  },
+  {
+   "d": 12,
+   "t": "while loops",
+   "k": [
+    "loop conditions",
+    "accumulators",
+    "sentinel values",
+    "avoiding infinite loops"
+   ],
+   "b": "A number guessing game that gives higher/lower hints and counts attempts.",
+   "m": 70
+  },
+  {
+   "d": 13,
+   "t": "for loops and range",
+   "k": [
+    "iterating sequences",
+    "range(start, stop, step)",
+    "enumerate()",
+    "zip()"
+   ],
+   "b": "A multiplication table generator that lines up perfectly for any size you ask for.",
+   "m": 70
+  },
+  {
+   "d": 14,
+   "t": "break, continue and loop-else",
+   "k": [
+    "early exit",
+    "skipping iterations",
+    "for...else",
+    "flag variables"
+   ],
+   "b": "A prime number finder that stops checking the moment it knows the answer.",
+   "m": 70
+  },
+  {
+   "d": 15,
+   "t": "Nested loops",
+   "k": [
+    "loops inside loops",
+    "row and column thinking",
+    "cost of nesting",
+    "2D grids"
+   ],
+   "b": "An ASCII art generator: pyramids, diamonds and a chessboard, all from nested loops.",
+   "m": 80
+  },
+  {
+   "d": 16,
+   "t": "Randomness and simulation",
+   "k": [
+    "random module",
+    "randint & choice",
+    "shuffle",
+    "seeding for reproducibility"
+   ],
+   "b": "A dice simulator that rolls ten thousand times and plots the distribution as text bars.",
+   "m": 75
+  },
+  {
+   "d": 17,
+   "t": "Structural pattern matching",
+   "k": [
+    "match / case",
+    "literal & sequence patterns",
+    "guards",
+    "the wildcard case"
+   ],
+   "b": "A command parser that turns typed instructions like 'go north' into actions.",
+   "m": 75
+  },
+  {
+   "d": 18,
+   "t": "Loop patterns worth knowing",
+   "k": [
+    "accumulator",
+    "search-and-flag",
+    "running min/max",
+    "single-pass thinking"
+   ],
+   "b": "Compute mean, median, mode, min and max over a list \u2014 without importing anything.",
+   "m": 80
+  },
+  {
+   "d": 19,
+   "t": "Time and pacing",
+   "k": [
+    "time.sleep()",
+    "perf_counter()",
+    "loop timing",
+    "carriage-return output"
+   ],
+   "b": "A Pomodoro timer that counts down in place and rings when the interval ends.",
+   "m": 70
+  },
+  {
+   "d": 20,
+   "t": "Milestone \u2014 text adventure",
+   "k": [
+    "game loop",
+    "state",
+    "rooms & transitions",
+    "inventory",
+    "win conditions"
+   ],
+   "b": "A multi-room adventure with an inventory, locked doors and at least two endings.",
+   "m": 180,
+   "cap": true
+  },
+  {
+   "d": 21,
+   "t": "Lists",
+   "k": [
+    "creation & indexing",
+    "slicing",
+    "append / insert / pop",
+    "mutability",
+    "aliasing vs. copying"
+   ],
+   "b": "A to-do list you can add to, complete, reorder and delete from, all in memory.",
+   "m": 75
+  },
+  {
+   "d": 22,
+   "t": "List comprehensions",
+   "k": [
+    "map form",
+    "filter form",
+    "nested comprehensions",
+    "when a loop reads better"
+   ],
+   "b": "Rewrite ten explicit loops as comprehensions, then rewrite two of them back and say why.",
+   "m": 70
+  },
+  {
+   "d": 23,
+   "t": "Tuples and unpacking",
+   "k": [
+    "immutability",
+    "tuple unpacking",
+    "swapping",
+    "star unpacking",
+    "namedtuple"
+   ],
+   "b": "A geometry helper: distance, midpoint and area, all passing points around as tuples.",
+   "m": 70
+  },
+  {
+   "d": 24,
+   "t": "Dictionaries",
+   "k": [
+    "keys & values",
+    "get() with defaults",
+    "iteration order",
+    "nesting",
+    "in"
+   ],
+   "b": "A contact book with lookup by name, partial search and safe handling of missing entries.",
+   "m": 80
+  },
+  {
+   "d": 25,
+   "t": "Counting and grouping",
+   "k": [
+    "dict comprehensions",
+    "collections.Counter",
+    "defaultdict",
+    "inverting a dict"
+   ],
+   "b": "A word frequency analyser that reports the top twenty words in any text file.",
+   "m": 80
+  },
+  {
+   "d": 26,
+   "t": "Sets",
+   "k": [
+    "uniqueness",
+    "union & intersection",
+    "difference",
+    "membership speed",
+    "frozenset"
+   ],
+   "b": "A duplicate finder that also reports what two tag lists share and where they differ.",
+   "m": 70
+  },
+  {
+   "d": 27,
+   "t": "Sorting",
+   "k": [
+    "sorted() vs. .sort()",
+    "key functions",
+    "reverse",
+    "stability",
+    "multi-key sorts"
+   ],
+   "b": "A leaderboard sorted by score descending, then by time ascending, then alphabetically.",
+   "m": 75
+  },
+  {
+   "d": 28,
+   "t": "Nested data",
+   "k": [
+    "dicts of lists of dicts",
+    "safe traversal",
+    "flattening",
+    "shape-first thinking"
+   ],
+   "b": "Read a deeply nested config structure and answer five questions about it without crashing.",
+   "m": 80
+  },
+  {
+   "d": 29,
+   "t": "Choosing the right structure",
+   "k": [
+    "list vs. set vs. dict",
+    "lookup cost",
+    "when order matters",
+    "measuring it"
+   ],
+   "b": "Benchmark membership tests across a list, a set and a dict at three sizes; explain the curve.",
+   "m": 75
+  },
+  {
+   "d": 30,
+   "t": "Milestone \u2014 expense tracker",
+   "k": [
+    "modelling with nested dicts",
+    "aggregation",
+    "reporting",
+    "input validation"
+   ],
+   "b": "Track expenses by category and month, then print a report with totals and the biggest spend.",
+   "m": 165,
+   "cap": true
+  },
+  {
+   "d": 31,
+   "t": "Writing functions",
+   "k": [
+    "def & return",
+    "parameters vs. arguments",
+    "local scope",
+    "implicit None",
+    "docstrings"
+   ],
+   "b": "A personal library of ten small utilities you will actually reuse later in the course.",
+   "m": 75
+  },
+  {
+   "d": 32,
+   "t": "Default and keyword arguments",
+   "k": [
+    "default values",
+    "keyword-only args",
+    "argument order rules",
+    "the mutable default trap"
+   ],
+   "b": "A report generator whose defaults make the common call one argument long.",
+   "m": 75
+  },
+  {
+   "d": 33,
+   "t": "*args and **kwargs",
+   "k": [
+    "packing",
+    "unpacking at the call site",
+    "forwarding arguments",
+    "signature design"
+   ],
+   "b": "A wrapper that logs every call \u2014 its name, its arguments and what it returned.",
+   "m": 75
+  },
+  {
+   "d": 34,
+   "t": "Scope and closures",
+   "k": [
+    "LEGB rule",
+    "global & nonlocal",
+    "functions returning functions",
+    "captured state"
+   ],
+   "b": "A counter factory and a memo cache, both built from closures instead of classes.",
+   "m": 80
+  },
+  {
+   "d": 35,
+   "t": "Lambdas and functional tools",
+   "k": [
+    "lambda",
+    "map & filter",
+    "functools.reduce",
+    "readability limits"
+   ],
+   "b": "The same data pipeline written three ways \u2014 loop, comprehension, functional \u2014 then judged.",
+   "m": 75
+  },
+  {
+   "d": 36,
+   "t": "Recursion",
+   "k": [
+    "base case",
+    "the call stack",
+    "recursion limits",
+    "memoisation",
+    "when to use iteration"
+   ],
+   "b": "A directory tree walker that prints an indented listing of any folder you point it at.",
+   "m": 85
+  },
+  {
+   "d": 37,
+   "t": "Decorators",
+   "k": [
+    "functions as objects",
+    "wrapper functions",
+    "@syntax",
+    "functools.wraps",
+    "arguments"
+   ],
+   "b": "Write @timer, @retry and @cache, then apply them to your Day 31 utilities.",
+   "m": 90
+  },
+  {
+   "d": 38,
+   "t": "Generators and yield",
+   "k": [
+    "yield",
+    "lazy evaluation",
+    "generator expressions",
+    "memory footprint",
+    "itertools"
+   ],
+   "b": "Stream a 500 MB log file and count error lines without ever loading it into memory.",
+   "m": 85
+  },
+  {
+   "d": 39,
+   "t": "Modules and packages",
+   "k": [
+    "import mechanics",
+    "__name__ == '__main__'",
+    "__init__.py",
+    "project layout",
+    "relative imports"
+   ],
+   "b": "Split your utilities into a proper package with submodules and a clean public surface.",
+   "m": 80
+  },
+  {
+   "d": 40,
+   "t": "Milestone \u2014 your own toolkit",
+   "k": [
+    "API design",
+    "docstrings",
+    "package structure",
+    "a demo script"
+   ],
+   "b": "Package your best helpers into one importable library with documentation and examples.",
+   "m": 150,
+   "cap": true
+  },
+  {
+   "d": 41,
+   "t": "Classes and objects",
+   "k": [
+    "class statement",
+    "__init__",
+    "self",
+    "instance attributes",
+    "methods"
+   ],
+   "b": "A BankAccount class that deposits, withdraws, refuses overdrafts and keeps a history.",
+   "m": 80
+  },
+  {
+   "d": 42,
+   "t": "Class vs. instance attributes",
+   "k": [
+    "shared state",
+    "@classmethod",
+    "@staticmethod",
+    "alternative constructors"
+   ],
+   "b": "An Employee class that issues sequential IDs and can be built from a CSV row.",
+   "m": 80
+  },
+  {
+   "d": 43,
+   "t": "Dunder methods",
+   "k": [
+    "__str__ vs. __repr__",
+    "__len__",
+    "__eq__",
+    "__hash__",
+    "__contains__"
+   ],
+   "b": "A Vector class that prints usefully, compares correctly and works inside a set.",
+   "m": 85
+  },
+  {
+   "d": 44,
+   "t": "Operator overloading",
+   "k": [
+    "__add__ & __sub__",
+    "__lt__",
+    "__getitem__",
+    "total_ordering",
+    "NotImplemented"
+   ],
+   "b": "A Money type that adds, compares and sorts \u2014 and refuses to mix currencies silently.",
+   "m": 85
+  },
+  {
+   "d": 45,
+   "t": "Inheritance",
+   "k": [
+    "subclassing",
+    "super()",
+    "overriding",
+    "isinstance",
+    "the MRO"
+   ],
+   "b": "A shape hierarchy where every subclass computes its own area behind one shared interface.",
+   "m": 80
+  },
+  {
+   "d": 46,
+   "t": "Composition over inheritance",
+   "k": [
+    "is-a vs. has-a",
+    "delegation",
+    "fragile base classes",
+    "mixins"
+   ],
+   "b": "Take a four-level inheritance chain and rebuild it from small collaborating objects.",
+   "m": 85
+  },
+  {
+   "d": 47,
+   "t": "Properties and encapsulation",
+   "k": [
+    "@property",
+    "setters",
+    "validation on assign",
+    "the underscore convention"
+   ],
+   "b": "A Temperature class where setting an impossible value raises instead of quietly storing it.",
+   "m": 80
+  },
+  {
+   "d": 48,
+   "t": "Dataclasses",
+   "k": [
+    "@dataclass",
+    "field defaults",
+    "frozen=True",
+    "order=True",
+    "__post_init__"
+   ],
+   "b": "Rewrite three of your earlier classes as dataclasses and count the lines you deleted.",
+   "m": 75
+  },
+  {
+   "d": 49,
+   "t": "Abstract bases and protocols",
+   "k": [
+    "ABC",
+    "@abstractmethod",
+    "duck typing",
+    "typing.Protocol",
+    "interface design"
+   ],
+   "b": "A plugin interface with two working implementations that the caller can't tell apart.",
+   "m": 85
+  },
+  {
+   "d": 50,
+   "t": "Milestone \u2014 inventory system",
+   "k": [
+    "domain modelling",
+    "class collaboration",
+    "validation",
+    "a CLI front end"
+   ],
+   "b": "Model products, stock and orders as objects, with a menu-driven interface over the top.",
+   "m": 180,
+   "cap": true
+  },
+  {
+   "d": 51,
+   "t": "Exceptions",
+   "k": [
+    "try / except",
+    "else & finally",
+    "exception types",
+    "catching too much"
+   ],
+   "b": "A safe input reader that survives bad types, empty input and Ctrl-C without a traceback.",
+   "m": 80
+  },
+  {
+   "d": 52,
+   "t": "Raising and custom exceptions",
+   "k": [
+    "raise",
+    "exception hierarchies",
+    "raise ... from",
+    "error messages people can act on"
+   ],
+   "b": "A validation layer for your inventory system with domain-specific error types.",
+   "m": 80
+  },
+  {
+   "d": 53,
+   "t": "Files and context managers",
+   "k": [
+    "open() modes",
+    "with statements",
+    "encodings",
+    "reading line by line",
+    "writing safely"
+   ],
+   "b": "A log splitter that breaks one large file into daily files without loading it all at once.",
+   "m": 80
+  },
+  {
+   "d": 54,
+   "t": "CSV",
+   "k": [
+    "csv.reader",
+    "DictReader & DictWriter",
+    "headers",
+    "delimiters",
+    "messy real data"
+   ],
+   "b": "Clean a CSV with missing fields and inconsistent casing, then write a summary CSV back out.",
+   "m": 85
+  },
+  {
+   "d": 55,
+   "t": "JSON",
+   "k": [
+    "dumps & loads",
+    "dump & load",
+    "nested structures",
+    "custom encoders",
+    "config files"
+   ],
+   "b": "A settings store that loads defaults, merges user overrides and saves changes to disk.",
+   "m": 80
+  },
+  {
+   "d": 56,
+   "t": "Paths and the filesystem",
+   "k": [
+    "pathlib.Path",
+    "globbing",
+    "exists & mkdir",
+    "shutil",
+    "cross-platform paths"
+   ],
+   "b": "A bulk renamer with a dry-run mode that shows every change before it touches anything.",
+   "m": 80
+  },
+  {
+   "d": 57,
+   "t": "Testing with pytest",
+   "k": [
+    "assert",
+    "test discovery",
+    "arrange-act-assert",
+    "pytest.raises",
+    "test naming"
+   ],
+   "b": "Write a real test suite for the toolkit you built on Day 40 and find at least one bug.",
+   "m": 90
+  },
+  {
+   "d": 58,
+   "t": "Fixtures, parametrize and mocks",
+   "k": [
+    "@pytest.fixture",
+    "@parametrize",
+    "monkeypatch",
+    "tmp_path",
+    "isolating side effects"
+   ],
+   "b": "Table-driven tests for your validators, plus a mocked clock so time-based code is testable.",
+   "m": 90
+  },
+  {
+   "d": 59,
+   "t": "Type hints",
+   "k": [
+    "annotations",
+    "Optional & Union",
+    "list[str] generics",
+    "mypy",
+    "typing gradually"
+   ],
+   "b": "Annotate your whole package and drive mypy to zero errors without using Any as an escape.",
+   "m": 85
+  },
+  {
+   "d": 60,
+   "t": "Milestone \u2014 tested CLI tool",
+   "k": [
+    "a real utility",
+    "test coverage",
+    "type checking",
+    "documentation"
+   ],
+   "b": "A file-processing tool with a test suite above 90% coverage, full type hints and a README.",
+   "m": 180,
+   "cap": true
+  },
+  {
+   "d": 61,
+   "t": "Dates and times",
+   "k": [
+    "datetime & date",
+    "timedelta",
+    "strftime & strptime",
+    "zoneinfo",
+    "UTC discipline"
+   ],
+   "b": "An age and countdown calculator that gets leap years and time zones right.",
+   "m": 80
+  },
+  {
+   "d": 62,
+   "t": "Regular expressions",
+   "k": [
+    "character classes",
+    "quantifiers",
+    "groups",
+    "findall & sub",
+    "greedy vs. lazy"
+   ],
+   "b": "Pull every email address, date and IP out of a messy raw text dump into a clean report.",
+   "m": 90
+  },
+  {
+   "d": 63,
+   "t": "Command-line interfaces",
+   "k": [
+    "argparse",
+    "positional vs. optional args",
+    "subcommands",
+    "help text",
+    "exit codes"
+   ],
+   "b": "Give your Day 60 tool a real CLI with subcommands, --help and correct exit statuses.",
+   "m": 85
+  },
+  {
+   "d": 64,
+   "t": "Logging",
+   "k": [
+    "levels",
+    "loggers & handlers",
+    "formatters",
+    "logging config",
+    "why not print"
+   ],
+   "b": "Replace every print in one of your projects with structured logging to console and file.",
+   "m": 80
+  },
+  {
+   "d": 65,
+   "t": "HTTP with requests",
+   "k": [
+    "GET & POST",
+    "query params",
+    "headers",
+    "status codes",
+    "timeouts",
+    "raise_for_status"
+   ],
+   "b": "A weather CLI that takes a city and prints a formatted forecast from a public API.",
+   "m": 85
+  },
+  {
+   "d": 66,
+   "t": "Working with real APIs",
+   "k": [
+    "pagination",
+    "rate limits",
+    "retry with backoff",
+    "API keys in env vars",
+    "caching"
+   ],
+   "b": "Fetch a fully paginated dataset, cache it locally and never re-request what you already have.",
+   "m": 90
+  },
+  {
+   "d": 67,
+   "t": "Web scraping",
+   "k": [
+    "BeautifulSoup",
+    "CSS selectors",
+    "HTML structure",
+    "robots.txt",
+    "scraping politely"
+   ],
+   "b": "Scrape a book catalogue into a CSV \u2014 title, price, rating \u2014 across multiple pages.",
+   "m": 90
+  },
+  {
+   "d": 68,
+   "t": "Environments and dependencies",
+   "k": [
+    "venv",
+    "pip",
+    "requirements.txt",
+    "pyproject.toml",
+    "uv",
+    "pinning versions"
+   ],
+   "b": "Give every project you have built so far a reproducible environment someone else can install.",
+   "m": 75
+  },
+  {
+   "d": 69,
+   "t": "Git for Python projects",
+   "k": [
+    "init & commit",
+    "branches",
+    ".gitignore for Python",
+    "pre-commit hooks",
+    "readable history"
+   ],
+   "b": "Put the whole hundred-day repo under version control with a commit for each day so far.",
+   "m": 85
+  },
+  {
+   "d": 70,
+   "t": "Milestone \u2014 terminal dashboard",
+   "k": [
+    "live data",
+    "caching",
+    "formatting",
+    "error handling",
+    "scheduling"
+   ],
+   "b": "Pull live data from two APIs, cache it, and render a formatted dashboard in the terminal.",
+   "m": 165,
+   "cap": true
+  },
+  {
+   "d": 71,
+   "t": "NumPy arrays",
+   "k": [
+    "ndarray",
+    "dtypes",
+    "shape & reshape",
+    "vectorised vs. looped",
+    "array creation"
+   ],
+   "b": "Load an image as an array and produce greyscale, inverted and cropped versions of it.",
+   "m": 85
+  },
+  {
+   "d": 72,
+   "t": "NumPy operations",
+   "k": [
+    "broadcasting",
+    "boolean masks",
+    "fancy indexing",
+    "axis-wise aggregation",
+    "np.where"
+   ],
+   "b": "A full grade analytics report \u2014 per student, per subject, per cohort \u2014 with no Python loops.",
+   "m": 90
+  },
+  {
+   "d": 73,
+   "t": "pandas Series and DataFrames",
+   "k": [
+    "constructing frames",
+    "read_csv",
+    "loc vs. iloc",
+    "dtypes",
+    "head / info / describe"
+   ],
+   "b": "Load a real public dataset and produce a one-page profile of what is actually in it.",
+   "m": 90
+  },
+  {
+   "d": 74,
+   "t": "Cleaning data",
+   "k": [
+    "missing values",
+    "dropna & fillna",
+    "type coercion",
+    "duplicates",
+    "string accessors"
+   ],
+   "b": "Take a deliberately messy sales export and get it to the point where every column is trustworthy.",
+   "m": 90
+  },
+  {
+   "d": 75,
+   "t": "groupby and aggregation",
+   "k": [
+    "split-apply-combine",
+    "agg with multiple functions",
+    "pivot_table",
+    "multi-index"
+   ],
+   "b": "Revenue by region by quarter, with growth rates, from a single grouped expression.",
+   "m": 90
+  },
+  {
+   "d": 76,
+   "t": "Joining and reshaping",
+   "k": [
+    "merge & join types",
+    "concat",
+    "melt & pivot",
+    "long vs. wide",
+    "index alignment"
+   ],
+   "b": "Combine three separate exports into one analysis-ready table and prove no rows were lost.",
+   "m": 90
+  },
+  {
+   "d": 77,
+   "t": "Visualisation",
+   "k": [
+    "figure & axes",
+    "chart type selection",
+    "labels & scales",
+    "seaborn",
+    "colour with intent"
+   ],
+   "b": "A four-panel figure where every panel supports the same single conclusion.",
+   "m": 90
+  },
+  {
+   "d": 78,
+   "t": "SQL from Python",
+   "k": [
+    "sqlite3",
+    "SELECT / WHERE / JOIN / GROUP BY",
+    "parameterised queries",
+    "read_sql"
+   ],
+   "b": "Load your dataset into SQLite and answer the same five questions in SQL and in pandas.",
+   "m": 90
+  },
+  {
+   "d": 79,
+   "t": "Notebooks and exploratory work",
+   "k": [
+    "Jupyter",
+    "cell discipline",
+    "narrative analysis",
+    "reproducibility",
+    "when to leave the notebook"
+   ],
+   "b": "Redo one earlier analysis as a notebook that reads as an argument, not a pile of cells.",
+   "m": 80
+  },
+  {
+   "d": 80,
+   "t": "Milestone \u2014 data analysis report",
+   "k": [
+    "framing a question",
+    "cleaning",
+    "analysis",
+    "charts",
+    "written findings"
+   ],
+   "b": "Pick a dataset, ask one real question, and answer it with charts and a written conclusion.",
+   "m": 180,
+   "cap": true
+  },
+  {
+   "d": 81,
+   "t": "How the web actually works",
+   "k": [
+    "request & response",
+    "methods",
+    "status codes",
+    "headers",
+    "REST",
+    "JSON payloads"
+   ],
+   "b": "Map an API you already use into a table of endpoints, methods, inputs and responses.",
+   "m": 70
+  },
+  {
+   "d": 82,
+   "t": "Flask basics",
+   "k": [
+    "routes",
+    "the dev server",
+    "Jinja templates",
+    "template inheritance",
+    "static files"
+   ],
+   "b": "A personal portfolio site with a shared layout and a page for each project you have built.",
+   "m": 90
+  },
+  {
+   "d": 83,
+   "t": "Forms and state",
+   "k": [
+    "POST handling",
+    "server-side validation",
+    "sessions",
+    "flash messages",
+    "redirect-after-post"
+   ],
+   "b": "A guestbook that accepts entries, rejects bad ones with useful messages and remembers you.",
+   "m": 90
+  },
+  {
+   "d": 84,
+   "t": "Databases with SQLAlchemy",
+   "k": [
+    "models",
+    "sessions",
+    "queries",
+    "relationships",
+    "migrations with Alembic"
+   ],
+   "b": "Move the guestbook off memory and onto a real database, with a migration to prove it.",
+   "m": 95
+  },
+  {
+   "d": 85,
+   "t": "Building an API with FastAPI",
+   "k": [
+    "path & query params",
+    "Pydantic models",
+    "response models",
+    "status codes",
+    "auto docs"
+   ],
+   "b": "A complete CRUD API for your Day 50 inventory model, with generated interactive docs.",
+   "m": 95
+  },
+  {
+   "d": 86,
+   "t": "Authentication",
+   "k": [
+    "password hashing",
+    "sessions vs. tokens",
+    "JWT",
+    "protected routes",
+    "what never to store"
+   ],
+   "b": "Add signup, login and per-user data to your API \u2014 with passwords you could safely leak.",
+   "m": 95
+  },
+  {
+   "d": 87,
+   "t": "Testing and documenting an API",
+   "k": [
+    "TestClient",
+    "fixtures for a test DB",
+    "OpenAPI",
+    "error contracts",
+    "status code discipline"
+   ],
+   "b": "A test suite that covers every endpoint including the failure paths, not just the happy ones.",
+   "m": 90
+  },
+  {
+   "d": 88,
+   "t": "Talking to a front end",
+   "k": [
+    "fetch()",
+    "CORS",
+    "JSON contracts",
+    "templates vs. SPA",
+    "loading & error states"
+   ],
+   "b": "A small JavaScript front end that reads and writes through your API in the browser.",
+   "m": 90
+  },
+  {
+   "d": 89,
+   "t": "Deployment",
+   "k": [
+    "Dockerfile",
+    "environment config",
+    "gunicorn / uvicorn",
+    "secrets",
+    "logs in production"
+   ],
+   "b": "Containerise the API and ship it to a public URL that someone else can hit.",
+   "m": 100
+  },
+  {
+   "d": 90,
+   "t": "Milestone \u2014 full-stack app",
+   "k": [
+    "auth",
+    "database",
+    "API",
+    "interface",
+    "deployment"
+   ],
+   "b": "One deployed application with accounts, persistent data and a UI \u2014 live, on the internet.",
+   "m": 180,
+   "cap": true
+  },
+  {
+   "d": 91,
+   "t": "Concurrency, conceptually",
+   "k": [
+    "concurrency vs. parallelism",
+    "processes vs. threads",
+    "the GIL",
+    "I/O-bound vs. CPU-bound"
+   ],
+   "b": "Run one I/O workload and one CPU workload three ways each and chart which approach wins.",
+   "m": 85
+  },
+  {
+   "d": 92,
+   "t": "Threads and thread pools",
+   "k": [
+    "ThreadPoolExecutor",
+    "futures",
+    "locks",
+    "race conditions",
+    "thread safety"
+   ],
+   "b": "A parallel downloader that fetches fifty files at once and reports live progress.",
+   "m": 90
+  },
+  {
+   "d": 93,
+   "t": "Multiprocessing",
+   "k": [
+    "Process & Pool",
+    "map vs. imap",
+    "pickling limits",
+    "shared state",
+    "chunk sizing"
+   ],
+   "b": "Process a folder of images across every core and measure the real speed-up you got.",
+   "m": 90
+  },
+  {
+   "d": 94,
+   "t": "async and await",
+   "k": [
+    "the event loop",
+    "coroutines",
+    "asyncio.gather",
+    "async context managers",
+    "httpx"
+   ],
+   "b": "Fetch a hundred URLs concurrently and compare the wall-clock time against the threaded version.",
+   "m": 95
+  },
+  {
+   "d": 95,
+   "t": "Performance and profiling",
+   "k": [
+    "timeit",
+    "cProfile",
+    "reading a profile",
+    "algorithmic vs. micro-optimisation",
+    "measuring first"
+   ],
+   "b": "Profile your slowest script, make it ten times faster, and show the before-and-after numbers.",
+   "m": 90
+  },
+  {
+   "d": 96,
+   "t": "Design patterns, the Pythonic way",
+   "k": [
+    "strategy",
+    "factory",
+    "adapter",
+    "when a function beats a class",
+    "the standard library's answers"
+   ],
+   "b": "Refactor the inventory system with one pattern that removes real duplication, not just structure.",
+   "m": 90
+  },
+  {
+   "d": 97,
+   "t": "Packaging and publishing",
+   "k": [
+    "pyproject.toml",
+    "build backends",
+    "semantic versioning",
+    "TestPyPI",
+    "entry points"
+   ],
+   "b": "Publish your toolkit so that pip install works from a clean machine.",
+   "m": 95
+  },
+  {
+   "d": 98,
+   "t": "Automation and CI",
+   "k": [
+    "GitHub Actions",
+    "workflow files",
+    "matrix builds",
+    "scheduled jobs",
+    "badges that mean something"
+   ],
+   "b": "A pipeline that runs your tests, linter and type checker on every push and blocks on failure.",
+   "m": 90
+  },
+  {
+   "d": 99,
+   "t": "Reading code and contributing",
+   "k": [
+    "navigating an unfamiliar repo",
+    "issue etiquette",
+    "small first patches",
+    "review feedback",
+    "the PR loop"
+   ],
+   "b": "Open one real pull request against an open-source Python project \u2014 docs count.",
+   "m": 120
+  },
+  {
+   "d": 100,
+   "t": "Capstone \u2014 ship something of your own",
+   "k": [
+    "scoping",
+    "building",
+    "testing",
+    "documenting",
+    "deploying",
+    "writing it up"
+   ],
+   "b": "Your idea, built and shipped: tested, documented, deployed, and written up so others can use it.",
+   "m": 240,
+   "cap": true
+  }
+ ],
+ "slug": "python",
+ "hours": 152,
+ "builds": 100
+}
