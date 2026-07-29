@@ -147,8 +147,14 @@ print(f"\nfactorial(20) both ways agree: "
 try:
     factorial_recursive(2000)
 except RecursionError:
-    print(f"factorial_recursive(2000): RecursionError")
-print(f"factorial_loop(2000): {len(str(factorial_loop(2000)))} digits, no problem")
+    print("factorial_recursive(2000): RecursionError")
+
+big = factorial_loop(2000)
+# NOT len(str(big)): Python 3.11+ refuses to convert an integer of more than
+# 4300 digits to a string without sys.set_int_max_str_digits(), as a defence
+# against denial-of-service by quadratic conversion. bit_length() is free.
+digits = int(big.bit_length() * 0.30103) + 1        # log10(2) = 0.30103
+print(f"factorial_loop(2000): about {digits:,} digits, computed instantly")
 
 # Factorial is the example everyone is taught and it is a BAD one: it is a
 # flat sequence, the loop is clearer, and only the loop scales.

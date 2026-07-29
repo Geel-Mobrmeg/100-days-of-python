@@ -1,0 +1,41 @@
+# The file that turns a folder of Python into an installable package.
+# Day 97 publishes with this; today it exists so `pip install -e .` works
+# and the tests import the INSTALLED package rather than the directory.
+
+[build-system]
+requires = ["hatchling"]
+build-backend = "hatchling.build"
+
+[project]
+name = "mytoolkit"
+version = "1.0.0"
+description = "Small utilities worth keeping, from 100 Days of Python."
+readme = "mytoolkit/README.md"
+requires-python = ">=3.11"
+license = { text = "MIT" }
+keywords = ["utilities", "text", "decorators"]
+classifiers = [
+    "Programming Language :: Python :: 3",
+    "License :: OSI Approved :: MIT License",
+    "Intended Audience :: Developers",
+]
+dependencies = []                 # zero. Standard library only.
+
+[project.optional-dependencies]
+dev = ["pytest>=7", "ruff>=0.1", "mypy>=1.0"]
+
+[project.scripts]
+mytoolkit = "mytoolkit.__main__:main"
+
+[tool.hatch.build.targets.wheel]
+packages = ["mytoolkit"]
+
+[tool.ruff]
+line-length = 88
+
+[tool.ruff.lint]
+select = ["E", "F", "W", "N", "UP", "C4", "SIM", "B"]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+addopts = "--doctest-modules"
