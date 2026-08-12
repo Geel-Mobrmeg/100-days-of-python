@@ -22,6 +22,7 @@ are: they all tested the examples the author had already thought of.
 """
 
 import re
+import shutil
 import subprocess
 import sys
 from pathlib import Path
@@ -245,6 +246,11 @@ try:
     sabotage_output = run("tests/test_numbers.py", "-q", "--tb=no")
 finally:
     numbers.write_text(original, encoding="utf-8")
+    # Clear the bytecode cache too: Python validates a .pyc against the
+    # source's (mtime, size), and two writes inside one filesystem
+    # timestamp tick can leave a stale one in place.
+    shutil.rmtree(numbers.parent / "__pycache__", ignore_errors=True)
+
 sabotage_caught = " failed" in sabotage_output
 restored = run("tests/test_numbers.py", "-q", "--tb=no")
 
