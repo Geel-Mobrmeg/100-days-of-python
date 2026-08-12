@@ -54,7 +54,7 @@ count = 0
 
 
 def broken():
-    print(count)                    # UnboundLocalError — not 0
+    print(count)                    # noqa: F823 - UnboundLocalError, not 0
     count = count + 1               # noqa: F841
 
 

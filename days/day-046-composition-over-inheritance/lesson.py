@@ -265,7 +265,7 @@ wrapper = Wrapper([3, 1, 2])
 print(f"\nwrapper.extra()   {wrapper.extra()}")
 print(f"wrapper.append(9) forwarded, giving {wrapper._wrapped}"
       if wrapper.append(9) is None else "")
-print(f"wrapper.sort()    forwarded: ", end="")
+print("wrapper.sort()    forwarded: ", end="")
 wrapper.sort()
 print(wrapper._wrapped)
 

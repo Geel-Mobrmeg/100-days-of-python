@@ -213,10 +213,10 @@ inner_timer()
 per_attempt = [t for _, t in TIMINGS]
 
 print(f"    @timer OUTSIDE @retry: 1 measurement of {whole * 1000:.0f} ms")
-print(f"                           (all attempts plus the backoff waits)")
+print("                           (all attempts plus the backoff waits)")
 print(f"    @timer INSIDE  @retry: {len(per_attempt)} measurements of "
       f"{', '.join(f'{t * 1000:.1f}' for t in per_attempt)} ms")
-print(f"                           (each attempt alone, no waiting)")
+print("                           (each attempt alone, no waiting)")
 print("""
     Both are correct; they answer different questions. "How long did the
     user wait?" is the outer one. "How slow is one attempt?" is the inner.
@@ -260,7 +260,7 @@ print("""
 
 print()
 print("=" * WIDTH)
-print(f"""NOT ONE LINE OF toolkit.py CHANGED.
+print("""NOT ONE LINE OF toolkit.py CHANGED.
 
 Timing, caching, retrying and validating are all ORTHOGONAL to computing a
 slug or chunking a list. That is the test for whether something should be a

@@ -167,7 +167,7 @@ print(f"p.x={p.x}  p[0]={p[0]}")        # names AND indices
 px, py = p                              # still unpacks
 print(f"unpacked: {px}, {py}")
 print(f"still a tuple: {isinstance(p, tuple)}")
-print(f"still immutable: ", end="")
+print("still immutable: ", end="")
 try:
     p.x = 9
 except AttributeError as e:

@@ -86,7 +86,7 @@ print("                     survived among the ties. That is stability.")
 people = PEOPLE.copy()
 people.sort(key=itemgetter("first"))     # LEAST significant first
 people.sort(key=itemgetter("age"))       # MOST significant last
-print(f"\nage, then first name (two passes):")
+print("\nage, then first name (two passes):")
 for p in people:
     print(f"  {p['age']:>4}  {p['first']}")
 print("  ^ 85s are Barbara then Grace — alphabetical, from the first pass")

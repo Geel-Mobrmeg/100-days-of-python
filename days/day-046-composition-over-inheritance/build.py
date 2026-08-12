@@ -261,7 +261,7 @@ for label, service in requests:
     result = service.send("hello")
     print(f"  {label:<34}{result:>{WIDTH - 36}}")
 
-print(f"""
+print("""
   Five configurations, ONE class, no new subclasses.
 
   For the chain, each of those needs a NEW CLASS — and the first two are
@@ -323,7 +323,7 @@ print("""
 
 print()
 print("=" * WIDTH)
-print(f"""WHAT EACH ONE COSTS
+print("""WHAT EACH ONE COSTS
 
   THE CHAIN
     +  short to write the first time; each level is a few lines

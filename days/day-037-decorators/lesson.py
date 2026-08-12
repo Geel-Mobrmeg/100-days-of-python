@@ -4,7 +4,6 @@
 """
 
 import functools
-import time
 
 WIDTH = 72
 
@@ -256,7 +255,7 @@ def decorated_once(n):
     return n * 2
 
 
-print(f"""
+print("""
 WHEN TO USE ONE — is this concern ORTHOGONAL to what the function does?
 
   YES   timing, retrying, caching, logging, access control, rate limiting,

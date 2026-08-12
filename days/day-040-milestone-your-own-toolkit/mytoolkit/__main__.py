@@ -33,7 +33,7 @@ def main(argv=None):
     ]
 
     for name, module, description in modules:
-        exported = [n for n in module.__all__]
+        exported = list(module.__all__)
         print(f"\n  {name:<14}{description}")
         for function_name in exported:
             function = getattr(module, function_name)
@@ -44,7 +44,7 @@ def main(argv=None):
     print()
     print("-" * WIDTH)
     print(f"  {total} public names across {len(modules)} submodules")
-    print(f"  all of them importable as:  from mytoolkit import <name>")
+    print("  all of them importable as:  from mytoolkit import <name>")
     print("=" * WIDTH)
 
     if argv:

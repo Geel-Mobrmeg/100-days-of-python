@@ -44,7 +44,7 @@ def main(argv=None):
     print()
     print("-" * WIDTH)
     print(f"  {total} public names across {len(modules)} submodules")
-    print(f"  all of them importable as:  from mytoolkit import <name>")
+    print("  all of them importable as:  from mytoolkit import <name>")
     print("=" * WIDTH)
 
     if argv:

@@ -16,7 +16,6 @@ to say WHY, not to know which one this file prefers.
 """
 
 import time
-from functools import reduce
 from operator import itemgetter
 
 WIDTH = 76

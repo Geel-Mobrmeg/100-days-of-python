@@ -41,7 +41,7 @@ print(f"ada.__dict__ now {ada.__dict__}")
 print("  ^ a NEW instance attribute now HIDES the class one")
 
 Employee.company = "New Name Ltd"
-print(f"\nafter Employee.company = 'New Name Ltd':")
+print("\nafter Employee.company = 'New Name Ltd':")
 print(f"  alan.company  {alan.company}         <- follows the class")
 print(f"  ada.company   {ada.company}   <- still shadowed")
 
@@ -160,7 +160,7 @@ class Detailed(Record):
 print(f"\n{Record('direct', 1)}")
 print(f"{Record.from_csv('from a row, 42')}")
 print(f"{Detailed.from_csv('subclass row, 7')}   <- a Detailed, not a Record")
-print(f"  because from_csv used cls(...), not Record(...)")
+print("  because from_csv used cls(...), not Record(...)")
 print(f"is_valid_row('a,1'):    {Record.is_valid_row('a,1')}")
 print(f"records created:        {Record.count()}")
 
@@ -186,7 +186,7 @@ print(f"\nSub.make('x') is a {type(Sub.make('x')).__name__}   "
 # 6. Which one?
 # ---------------------------------------------------------------------------
 
-print(f"""
+print("""
   DECORATOR        FIRST ARG   SEES            USE FOR
   (none)           self        this instance   almost everything
   @classmethod     cls         the class       alternative constructors,
@@ -223,7 +223,7 @@ class Right(Base):
 
 
 Left(); Left(); Right()                      # noqa: E702 - compact demo
-print(f"\nwith type(self)._count += 1:")
+print("\nwith type(self)._count += 1:")
 print(f"  Base._count  {Base._count}    Left._count  {Left._count}    "
       f"Right._count {Right._count}")
 print("""

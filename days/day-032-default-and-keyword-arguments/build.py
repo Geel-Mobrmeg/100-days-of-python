@@ -191,7 +191,7 @@ print("=" * WIDTH)
 try:
     report(ROWS, "SALES", None, "sales")
 except TypeError as e:
-    print(f"  report(ROWS, 'SALES', None, 'sales')")
+    print("  report(ROWS, 'SALES', None, 'sales')")
     print(f"    -> TypeError: {e}")
 
 print("""

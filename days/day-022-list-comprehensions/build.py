@@ -215,7 +215,7 @@ print(f"   comprehension:        found {comp_result} after {len(BIG):,} checks")
 lazy = next(n for n in BIG if n > 2)
 print(f"   next() + generator:   found {lazy} lazily — the one-line `break`")
 
-print(f"""
+print("""
    `next(x for x in items if cond)` is the comprehension world's `break`,
    and it is the right answer when you want one line AND early exit. Add a
    default — next(..., None) — or it raises StopIteration on no match.

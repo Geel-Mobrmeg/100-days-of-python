@@ -233,7 +233,7 @@ print(f"""1. *args, **kwargs FORWARD ANYTHING
    debugging tool into a bug.""")
 print("=" * WIDTH)
 
-print(f"""
+print("""
 The @ lines above are DECORATOR syntax, and `@logged` is exactly
 `clamp = logged(clamp)`. That is all a decorator is, and it is Day 37 —
 which is now mostly syntax, because the mechanism is this file.""")

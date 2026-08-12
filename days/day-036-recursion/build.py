@@ -280,7 +280,7 @@ print(f"{'iterative produced':<34}{len(iterative_lines):>8} lines")
 print(f"{'identical listings':<34}"
       f"{str(recursive_lines == iterative_lines):>8}")
 
-print(f"""
+print("""
 WHY RECURSION IS THE RIGHT TOOL HERE
 
   A folder contains folders. The recursive walker says exactly that and

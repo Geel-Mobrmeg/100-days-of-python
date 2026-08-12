@@ -108,8 +108,10 @@ class TestDecorators:
         def square(n):
             return n * n
 
-        square(1); square(2); square(1)   # 1 is now most recently used
-        square(3)                          # evicts 2, not 1
+        square(1)
+        square(2)
+        square(1)          # 1 is now the most recently used
+        square(3)          # evicts 2, not 1
         before = square.cache_info()["hits"]
         square(1)
         assert square.cache_info()["hits"] == before + 1

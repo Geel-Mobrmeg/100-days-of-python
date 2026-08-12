@@ -135,7 +135,7 @@ for f in FILES:
 print("  " + "-" * (WIDTH - 4))
 print(f"  {'TOTAL':<34}{toolkit.human_bytes(total_bytes):>12}")
 
-print(f"""
+print("""
   Four utilities in one f-string, each returning a string that the next
   thing can use. None of them printed anything. That is the difference
   between a library and a script.""")

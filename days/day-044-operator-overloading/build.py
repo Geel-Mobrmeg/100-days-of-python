@@ -268,7 +268,7 @@ for label, attempt in [
     except (ValueError, ZeroDivisionError, AttributeError) as exc:
         print(f"  {label:<28}{type(exc).__name__}: {str(exc)[:34]}")
 
-print(f"""
+print("""
   Note `rent == dollars` did NOT raise — it returned False. Equality across
   currencies is a meaningful question with a clear answer, and raising
   would make `rent in some_list` explode on the first foreign entry.

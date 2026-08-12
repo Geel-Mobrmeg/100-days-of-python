@@ -249,7 +249,7 @@ print(f"{'agree':<20}"
       f"{str(closure_stats()['hits'] == class_cache.hits):>32}")
 print()
 print(f"  the class exposes its cache:   {class_cache.cache}")
-print(f"  and you can corrupt it:        ", end="")
+print("  and you can corrupt it:        ", end="")
 class_cache.cache[(2,)] = "nonsense"
 print(f"class_cache(2) now returns {class_cache(2)!r}")
 print("""

@@ -1,0 +1,14 @@
+# The course targets the Python that ships with the environment it was
+# written on. Stating it here keeps the linter from flagging 3.11 builtins
+# (ExceptionGroup, except*) as undefined names.
+target-version = "py311"
+line-length = 88
+
+# Two directories contain code that is deliberately wrong — it is the
+# teaching material, not a mistake. Day 8's ugly.py is the "before" of a
+# style exercise; Day 9's broken/ files each raise a specific exception on
+# purpose so the lesson can show the real traceback.
+exclude = [
+    "days/day-008-style-comments-and-pep-8/ugly.py",
+    "days/day-009-reading-tracebacks/broken",
+]

@@ -53,7 +53,7 @@ except TypeError as e:
 
 values = [1, 2, 3]
 print(f"\ntotal(*values) = {total(*values)}")     # calls total(1, 2, 3)
-print(f"total(values)  = ", end="")
+print("total(values)  = ", end="")
 print(f"{total(values)}" if False else "TypeError — one tuple, not three ints")
 
 options = {"sep": "-", "end": "!\n"}

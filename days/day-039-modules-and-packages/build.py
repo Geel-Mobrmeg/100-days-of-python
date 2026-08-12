@@ -115,7 +115,7 @@ print("-" * WIDTH)
 import collections                              # noqa: E402 - the point
 
 print(f"  the STDLIB collections: {collections.__file__.split('/')[-1]}")
-print(f"  ours is called:         containers.py")
+print("  ours is called:         containers.py")
 print(f"  Counter still works:    {collections.Counter('aab')}")
 print("""
   chunked/unique/dig are collection helpers, so containers.py is a slightly
@@ -148,7 +148,7 @@ print("""
 
 print()
 print("=" * WIDTH)
-print(f"""WHAT TODAY ACTUALLY CHANGED
+print("""WHAT TODAY ACTUALLY CHANGED
 
   FOR THE CALLER      nothing. Every function behaves identically, and the
                       import line got SHORTER (one package, not two files).

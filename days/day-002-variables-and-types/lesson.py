@@ -45,7 +45,7 @@ print("population:", population)
 
 # int and float are different types even when they look equal:
 print(2 == 2.0)           # True  — same value
-print(type(2) == type(2.0))   # False — different type
+print(type(2) == type(2.0))   # noqa: E721 - comparing types IS the point
 
 # Any arithmetic touching a float produces a float:
 print(10 / 2)             # 5.0  — true division ALWAYS gives a float

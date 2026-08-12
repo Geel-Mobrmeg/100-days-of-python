@@ -199,7 +199,7 @@ for letter, n in letters.most_common(12):
     print(f"  {letter}  {n:>6}  {n / letters.total():>7.2%}  {bar}")
 print()
 print("  English letter order is normally ETAOIN SHRDLU. If this text")
-print(f"  disagrees near the top, it is short enough for that to be noise.")
+print("  disagrees near the top, it is short enough for that to be noise.")
 print("=" * WIDTH)
 
 

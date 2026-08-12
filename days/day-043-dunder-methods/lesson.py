@@ -37,7 +37,7 @@ class Bare:
 
 
 a, b = Bare(1, 2), Bare(1, 2)
-print(f"\nno dunders:")
+print("\nno dunders:")
 print(f"  print(obj)     {a}")
 print(f"  a == b         {a == b}       <- identity, not value")
 print(f"  in a list      {[a]}")
