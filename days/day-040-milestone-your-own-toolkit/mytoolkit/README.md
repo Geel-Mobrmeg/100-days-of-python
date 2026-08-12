@@ -100,8 +100,12 @@ Stated rather than discovered:
   source returns the first answer **for the life of the process**.
 - `@retry` defaults to `catching=Exception`, which is too broad for real
   use. Narrow it: retrying a `TypeError` runs the same bug three times.
-- `slugify` handles ASCII well and transliterates nothing — `"Café"`
-  becomes `"caf"`. Use `python-slugify` if you need Unicode folding.
+- `slugify` folds accents off Latin letters — `"Café Münster"` becomes
+  `"cafe-munster"` — and reduces scripts with no Latin decomposition
+  (Greek, Cyrillic, Japanese) to `""`. Use `python-slugify` if you need
+  real transliteration.
+  *(This line was wrong until 1.1.0: it claimed `"Café"` became `"caf"`,
+  which the code never did. Day 57 found it.)*
 - `human_bytes` uses 1024-based units labelled `KB`/`MB`. Strictly those
   should be `KiB`/`MiB`; the common labels were chosen deliberately.
 

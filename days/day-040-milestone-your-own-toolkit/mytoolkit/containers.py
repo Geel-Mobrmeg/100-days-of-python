@@ -42,6 +42,8 @@ def dig(data, *keys, default=None):
     '-'
     >>> dig(None, "a", default=0)
     0
+    >>> dig({"a": None}, "a", default="missing") is None
+    True
     """
     for key in keys:
         if isinstance(data, dict):
@@ -54,4 +56,7 @@ def dig(data, *keys, default=None):
             data = data[key]
         else:
             return default
-    return default if data is None else data
+    # Return what was stored, including a stored None. Folding None into
+    # `default` made "the key holds null" indistinguishable from "the key
+    # is absent", which is exactly the question a caller asks dig().
+    return data

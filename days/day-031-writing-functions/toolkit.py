@@ -20,6 +20,10 @@ Run the doctests:
     python3 -m doctest -v toolkit.py
 """
 
+# The only import in the file. slugify() needs it to fold accents off
+# Latin letters; everything else here is plain Python.
+import unicodedata
+
 # ---------------------------------------------------------------------------
 # 1. Numbers
 # ---------------------------------------------------------------------------
@@ -64,15 +68,24 @@ def human_bytes(count):
     '2.0 KB'
     >>> human_bytes(1_500_000_000)
     '1.4 GB'
+    >>> human_bytes(1024 * 1024 - 1)
+    '1.0 MB'
     """
     size = float(count)
-    for unit in ("B", "KB", "MB", "GB", "TB"):
-        if size < 1024 or unit == "TB":
-            if unit == "B":
-                return f"{int(size)} {unit}"
-            return f"{size:.1f} {unit}"
+    units = ("B", "KB", "MB", "GB", "TB")
+    index = 0
+    while index < len(units) - 1:
+        # Compare the value AS IT WILL BE SHOWN. 1048575 bytes is
+        # 1023.99902 KB, which formats as '1024.0 KB' — a quantity that
+        # does not exist. Rounding before the comparison promotes it.
+        shown = abs(size) if index == 0 else round(abs(size), 1)
+        if shown < 1024:
+            break
         size /= 1024
-    return f"{size:.1f} TB"
+        index += 1
+    if units[index] == "B":
+        return f"{int(size)} {units[index]}"
+    return f"{size:.1f} {units[index]}"
 
 
 def duration(seconds):
@@ -84,13 +97,19 @@ def duration(seconds):
     '1:02:05'
     >>> duration(0)
     '0:00'
+    >>> duration(-75)
+    '-1:15'
     """
     seconds = int(seconds)
-    hours, rest = divmod(seconds, 3600)
+    # divmod on a negative number floors, so divmod(-5, 3600) is
+    # (-1, 3595) and the naive version prints '-1:59:55'. Take the sign
+    # off first and put it back on the front.
+    sign = "-" if seconds < 0 else ""
+    hours, rest = divmod(abs(seconds), 3600)
     minutes, secs = divmod(rest, 60)
     if hours:
-        return f"{hours}:{minutes:02d}:{secs:02d}"
-    return f"{minutes}:{secs:02d}"
+        return f"{sign}{hours}:{minutes:02d}:{secs:02d}"
+    return f"{sign}{minutes}:{secs:02d}"
 
 
 # ---------------------------------------------------------------------------
@@ -126,8 +145,19 @@ def slugify(text):
     'day-31-writing-functions'
     >>> slugify("!!!")
     ''
+    >>> slugify("Café Münster")
+    'cafe-munster'
     """
-    kept = [ch.lower() if ch.isalnum() else " " for ch in text]
+    # URL-safe means ASCII. Decompose first so 'é' becomes 'e' plus a
+    # combining mark, keep the 'e', and drop the mark with everything
+    # else non-ASCII. Scripts with no Latin decomposition (Greek, Cyrillic,
+    # Japanese) reduce to '' — a documented limit, not an accident.
+    kept = []
+    for character in unicodedata.normalize("NFKD", text):
+        if unicodedata.combining(character):
+            continue          # an accent: drop it, do not separate words
+        kept.append(character.lower()
+                    if character.isascii() and character.isalnum() else " ")
     return "-".join("".join(kept).split())
 
 
@@ -183,6 +213,8 @@ def dig(data, *keys, default=None):
     '-'
     >>> dig(None, "a", default=0)
     0
+    >>> dig({"a": None}, "a", default="missing") is None
+    True
     """
     for key in keys:
         if isinstance(data, dict):
@@ -195,7 +227,10 @@ def dig(data, *keys, default=None):
             data = data[key]
         else:
             return default
-    return default if data is None else data
+    # Return what was stored, including a stored None. Folding None into
+    # `default` made "the key holds null" indistinguishable from "the key
+    # is absent", which is exactly the question a caller asks dig().
+    return data
 
 
 # ---------------------------------------------------------------------------

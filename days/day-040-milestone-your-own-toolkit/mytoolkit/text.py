@@ -1,5 +1,7 @@
 """Text helpers."""
 
+import unicodedata
+
 __all__ = ["truncate", "slugify", "initials"]
 
 
@@ -31,8 +33,19 @@ def slugify(text):
     'day-31-writing-functions'
     >>> slugify("!!!")
     ''
+    >>> slugify("Café Münster")
+    'cafe-munster'
     """
-    kept = [ch.lower() if ch.isalnum() else " " for ch in text]
+    # URL-safe means ASCII. Decompose first so 'é' becomes 'e' plus a
+    # combining mark, keep the 'e', and drop the mark with everything
+    # else non-ASCII. Scripts with no Latin decomposition (Greek, Cyrillic,
+    # Japanese) reduce to '' — a documented limit, not an accident.
+    kept = []
+    for character in unicodedata.normalize("NFKD", text):
+        if unicodedata.combining(character):
+            continue          # an accent: drop it, do not separate words
+        kept.append(character.lower()
+                    if character.isascii() and character.isalnum() else " ")
     return "-".join("".join(kept).split())
 
 

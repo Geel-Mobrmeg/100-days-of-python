@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mytoolkit"
-version = "1.0.0"
+version = "1.1.0"
 description = "Small utilities worth keeping, from 100 Days of Python."
 readme = "mytoolkit/README.md"
 requires-python = ">=3.11"
