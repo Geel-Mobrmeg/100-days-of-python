@@ -28,7 +28,7 @@ from .decorators import RetryError, cache, retry, timer, validated
 from .numbers import clamp, duration, human_bytes, percent
 from .text import initials, slugify, truncate
 
-__version__ = "1.1.0"
+__version__ = "1.2.0"
 __author__ = "100 Days of Python"
 
 # __all__ declares the public surface. It is what `from mytoolkit import *`

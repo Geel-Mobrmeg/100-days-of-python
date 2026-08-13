@@ -12,12 +12,15 @@ stay separate.
 
 import sys
 
+from collections.abc import Sequence
+from types import ModuleType
+
 from . import __version__, containers, decorators, numbers, text
 
 WIDTH = 70
 
 
-def main(argv=None):
+def main(argv: Sequence[str] | None = None) -> int:
     """Print what the package contains. Returns an exit code."""
     argv = sys.argv[1:] if argv is None else argv
 
@@ -25,7 +28,7 @@ def main(argv=None):
     print(f"mytoolkit {__version__}")
     print("=" * WIDTH)
 
-    modules = [
+    modules: list[tuple[str, ModuleType, str]] = [
         ("numbers", numbers, "arithmetic and formatting"),
         ("text", text, "strings, slugs, initials"),
         ("containers", containers, "lists, dicts, nested data"),

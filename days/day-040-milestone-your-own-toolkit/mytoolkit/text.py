@@ -5,7 +5,7 @@ import unicodedata
 __all__ = ["truncate", "slugify", "initials"]
 
 
-def truncate(text, limit, suffix="..."):
+def truncate(text: str, limit: int, suffix: str = "...") -> str:
     """Return text shortened to limit characters INCLUDING the suffix.
 
     >>> truncate("Hello, world", 8)
@@ -24,7 +24,7 @@ def truncate(text, limit, suffix="..."):
     return text[: limit - len(suffix)] + suffix
 
 
-def slugify(text):
+def slugify(text: str) -> str:
     """Return text as a lowercase, hyphenated, URL-safe slug.
 
     >>> slugify("Hello, World!")
@@ -40,7 +40,7 @@ def slugify(text):
     # combining mark, keep the 'e', and drop the mark with everything
     # else non-ASCII. Scripts with no Latin decomposition (Greek, Cyrillic,
     # Japanese) reduce to '' — a documented limit, not an accident.
-    kept = []
+    kept: list[str] = []
     for character in unicodedata.normalize("NFKD", text):
         if unicodedata.combining(character):
             continue          # an accent: drop it, do not separate words
@@ -49,7 +49,7 @@ def slugify(text):
     return "-".join("".join(kept).split())
 
 
-def initials(name):
+def initials(name: str) -> str:
     """Return the initials of a full name.
 
     >>> initials("Ada Augusta Byron King")

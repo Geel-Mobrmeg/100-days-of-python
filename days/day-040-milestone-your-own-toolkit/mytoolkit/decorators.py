@@ -11,13 +11,27 @@ close over their configuration.
 """
 
 import functools
+import inspect
 import time
+from collections.abc import Callable
+from typing import ParamSpec, Protocol, TypedDict, TypeVar, cast, overload
 
 __all__ = ["timer", "retry", "cache", "validated", "TIMINGS", "RetryError"]
 
 # Every @timer'd call appends here, so the report at the end of build.py can
 # be computed from data rather than from whatever scrolled past.
-TIMINGS = []
+TIMINGS: list[tuple[str, float]] = []
+
+# P is the PARAMETER LIST of the decorated function and R is its return
+# type. Together they are what makes @timer(f)(1, 2) type-check exactly as
+# f(1, 2) does — the thing that was impossible before ParamSpec (3.10).
+P = ParamSpec("P")
+R = TypeVar("R")
+
+# A Protocol that RETURNS R must declare it covariant: a Cached[P, int] is
+# usable wherever a Cached[P, object] is wanted, because every int is an
+# object. mypy names this exactly, which is how you learn it.
+R_co = TypeVar("R_co", covariant=True)
 
 
 class RetryError(RuntimeError):
@@ -28,15 +42,26 @@ class RetryError(RuntimeError):
 # @timer
 # ---------------------------------------------------------------------------
 
-def timer(func=None, *, quiet=False):
+@overload
+def timer(func: Callable[P, R]) -> Callable[P, R]: ...
+
+
+@overload
+def timer(*, quiet: bool = ...) -> Callable[[Callable[P, R]], Callable[P, R]]:
+    ...
+
+
+def timer(
+    func: Callable[P, R] | None = None, *, quiet: bool = False
+) -> Callable[P, R] | Callable[[Callable[P, R]], Callable[P, R]]:
     """Measure how long each call takes and record it in TIMINGS.
 
     Works as @timer and as @timer(quiet=True) — the `func is None` check
     from lesson.py section 5.
     """
-    def decorator(f):
+    def decorator(f: Callable[P, R]) -> Callable[P, R]:
         @functools.wraps(f)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             start = time.perf_counter()
             try:
                 return f(*args, **kwargs)          # RETURN IT
@@ -55,18 +80,24 @@ def timer(func=None, *, quiet=False):
 # @retry
 # ---------------------------------------------------------------------------
 
-def retry(times=3, delay=0.05, backoff=2.0, catching=Exception, quiet=False):
+def retry(
+    times: int = 3,
+    delay: float = 0.05,
+    backoff: float = 2.0,
+    catching: type[Exception] | tuple[type[Exception], ...] = Exception,
+    quiet: bool = False,
+) -> Callable[[Callable[P, R]], Callable[P, R]]:
     """Retry a failing call, waiting longer between each attempt.
 
     `catching` defaults to Exception for teaching, and in real code you
     should NARROW IT — retrying a TypeError just runs the same bug three
     times. Day 66 uses this against a real API with catching=HTTPError.
     """
-    def decorator(func):
+    def decorator(func: Callable[P, R]) -> Callable[P, R]:
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             wait = delay
-            last = None
+            last: Exception | None = None
             for attempt in range(1, times + 1):
                 try:
                     return func(*args, **kwargs)
@@ -89,18 +120,60 @@ def retry(times=3, delay=0.05, backoff=2.0, catching=Exception, quiet=False):
 # @cache
 # ---------------------------------------------------------------------------
 
-def cache(func=None, *, max_size=128):
+class CacheInfo(TypedDict):
+    """The shape cache_info() returns. A dict with a KNOWN set of keys.
+
+    TypedDict is what makes info["hit_rate"] check and info["hitrate"]
+    an error, without changing anything at runtime.
+    """
+
+    hits: int
+    misses: int
+    size: int
+    hit_rate: float
+    max_size: int
+
+
+class Cached(Protocol[P, R_co]):
+    """A callable that ALSO has cache_info() and cache_clear().
+
+    THIS PROTOCOL IS THE INTERESTING PART OF THE DAY. The package README
+    has documented `square.cache_info()` since Day 40, and until this
+    class existed there was no type that said so — mypy reported
+    `"function" has no attribute "cache_info"` at every call site, which
+    is a real gap in the API rather than a complaint about syntax.
+    """
+
+    def __call__(self, *args: P.args, **kwargs: P.kwargs) -> R_co: ...
+
+    def cache_info(self) -> CacheInfo: ...
+
+    def cache_clear(self) -> None: ...
+
+
+@overload
+def cache(func: Callable[P, R]) -> Cached[P, R]: ...
+
+
+@overload
+def cache(*, max_size: int = ...) -> Callable[[Callable[P, R]], Cached[P, R]]:
+    ...
+
+
+def cache(
+    func: Callable[P, R] | None = None, *, max_size: int = 128
+) -> Cached[P, R] | Callable[[Callable[P, R]], Cached[P, R]]:
     """Memoise on the arguments. Day 34's closure, as a decorator.
 
     Requires HASHABLE arguments, exactly like functools.lru_cache and for
     the same reason: the key is a tuple of the arguments (Day 23).
     """
-    def decorator(f):
-        store = {}
+    def decorator(f: Callable[P, R]) -> Cached[P, R]:
+        store: dict[object, R] = {}
         hits = misses = 0
 
         @functools.wraps(f)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             nonlocal hits, misses
             key = (args, tuple(sorted(kwargs.items())))
             try:
@@ -122,7 +195,7 @@ def cache(func=None, *, max_size=128):
                 store.pop(next(iter(store)))     # evict least recently used
             return result
 
-        def cache_info():
+        def cache_info() -> CacheInfo:
             total = hits + misses
             return {
                 "hits": hits, "misses": misses, "size": len(store),
@@ -130,14 +203,18 @@ def cache(func=None, *, max_size=128):
                 "max_size": max_size,
             }
 
-        def cache_clear():
+        def cache_clear() -> None:
             nonlocal hits, misses
             store.clear()
             hits = misses = 0
 
-        wrapper.cache_info = cache_info
-        wrapper.cache_clear = cache_clear
-        return wrapper
+        # setattr, not `wrapper.cache_info = ...`: mypy knows a plain
+        # function object has no such attribute, and this is the honest
+        # way to say "I am adding one". The cast on the return is what
+        # promises the caller it is there.
+        setattr(wrapper, "cache_info", cache_info)      # noqa: B010
+        setattr(wrapper, "cache_clear", cache_clear)    # noqa: B010
+        return cast(Cached[P, R], wrapper)
 
     return decorator if func is None else decorator(func)
 
@@ -146,7 +223,9 @@ def cache(func=None, *, max_size=128):
 # @validated
 # ---------------------------------------------------------------------------
 
-def validated(**rules):
+def validated(
+    **rules: Callable[[object], bool],
+) -> Callable[[Callable[P, R]], Callable[P, R]]:
     """Check named arguments against predicates before the call.
 
     @validated(n=lambda v: v >= 0)
@@ -156,13 +235,11 @@ def validated(**rules):
     fires whether the caller wrote sqrt(-1) or sqrt(n=-1) — which a naive
     kwargs-only check would miss.
     """
-    import inspect
-
-    def decorator(func):
+    def decorator(func: Callable[P, R]) -> Callable[P, R]:
         signature = inspect.signature(func)
 
         @functools.wraps(func)
-        def wrapper(*args, **kwargs):
+        def wrapper(*args: P.args, **kwargs: P.kwargs) -> R:
             bound = signature.bind(*args, **kwargs)
             bound.apply_defaults()
             for name, check in rules.items():

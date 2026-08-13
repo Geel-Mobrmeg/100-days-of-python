@@ -1,9 +1,25 @@
-"""Numeric helpers."""
+"""Numeric helpers.
+
+Fully annotated on Day 59. Note `clamp`: it is generic over anything that
+can be compared with `<`, which is a Protocol rather than a base class,
+because int, float, str, date and Decimal share no ancestor.
+"""
+
+from typing import Protocol, TypeVar
 
 __all__ = ["clamp", "percent", "human_bytes", "duration"]
 
 
-def clamp(value, low, high):
+class Comparable(Protocol):
+    """Anything `min` and `max` can work with. Day 49's Protocol, used."""
+
+    def __lt__(self, other: object, /) -> bool: ...
+
+
+C = TypeVar("C", bound=Comparable)
+
+
+def clamp(value: C, low: C, high: C) -> C:
     """Return value limited to the range low..high.
 
     >>> clamp(15, 0, 10)
@@ -18,7 +34,7 @@ def clamp(value, low, high):
     return max(low, min(value, high))
 
 
-def percent(part, whole, places=1):
+def percent(part: float, whole: float, places: int = 1) -> str:
     """Return part of whole as a percentage string, safe when whole is 0.
 
     >>> percent(1, 4)
@@ -33,7 +49,7 @@ def percent(part, whole, places=1):
     return f"{part / whole:.{places}%}"
 
 
-def human_bytes(count):
+def human_bytes(count: float) -> str:
     """Return a byte count as a human-readable string.
 
     >>> human_bytes(512)
@@ -62,7 +78,7 @@ def human_bytes(count):
     return f"{size:.1f} {units[index]}"
 
 
-def duration(seconds):
+def duration(seconds: float) -> str:
     """Return a number of seconds as h:mm:ss or m:ss.
 
     >>> duration(75)

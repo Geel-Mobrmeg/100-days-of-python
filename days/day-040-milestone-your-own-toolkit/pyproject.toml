@@ -8,7 +8,7 @@ build-backend = "hatchling.build"
 
 [project]
 name = "mytoolkit"
-version = "1.1.0"
+version = "1.2.0"
 description = "Small utilities worth keeping, from 100 Days of Python."
 readme = "mytoolkit/README.md"
 requires-python = ">=3.11"
@@ -29,6 +29,22 @@ mytoolkit = "mytoolkit.__main__:main"
 
 [tool.hatch.build.targets.wheel]
 packages = ["mytoolkit"]
+# py.typed must be shipped in the wheel or the annotations are invisible
+# to every type checker downstream (PEP 561). Day 59.
+artifacts = ["mytoolkit/py.typed"]
+
+[tool.mypy]
+python_version = "3.11"
+strict = true
+# The PACKAGE is strict. Tests and examples are checked, but not held to
+# "annotate every function" — a test named
+# test_clamp_pulls_a_value_down() -> None: adds a return type and no
+# information. That is a deliberate scoping decision, not laziness, and
+# writing it down here is what makes it one.
+[[tool.mypy.overrides]]
+module = ["tests.*", "examples.*"]
+disallow_untyped_defs = false
+disallow_incomplete_defs = false
 
 [tool.ruff]
 line-length = 88

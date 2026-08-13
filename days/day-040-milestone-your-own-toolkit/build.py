@@ -56,9 +56,13 @@ check("pyproject.toml exists and parses", True)
 check("declares a name and version",
       project.get("name") and project.get("version"),
       f"{project.get('name')} {project.get('version')}")
+# EXACT equality. This check used to accept any two versions that shared a
+# major number, which meant it passed while pyproject said 1.2.0 and
+# __init__ said 1.1.0 — the very drift it exists to catch. A check that
+# can pass on the thing it is checking for is worse than no check, because
+# it is also a claim that somebody verified.
 check("version matches the package",
-      project["version"].startswith(mytoolkit.__version__.split(".")[0])
-      or project["version"] == mytoolkit.__version__,
+      project["version"] == mytoolkit.__version__,
       f"pyproject {project['version']} vs __init__ {mytoolkit.__version__}")
 check("declares a readme", "readme" in project, project.get("readme", ""))
 check("declares requires-python", "requires-python" in project,
