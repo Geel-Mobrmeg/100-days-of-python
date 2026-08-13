@@ -1,0 +1,26 @@
+{
+  "records": [
+    {
+      "sku": "SPR-006",
+      "region": "south",
+      "sold_on": "2026-03-01",
+      "units": 5,
+      "unit_price": "48.00"
+    },
+    {
+      "sku": "CMP-007",
+      "region": "South",
+      "sold_on": "2026-03-02",
+      "units": 9,
+      "unit_price": "7.25"
+    },
+    {
+      "sku": "NUT-016",
+      "region": "south",
+      "sold_on": "2026-03-02",
+      "units": 100,
+      "unit_price": "0.10"
+    },
+    "not an object"
+  ]
+}

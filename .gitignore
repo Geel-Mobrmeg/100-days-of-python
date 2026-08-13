@@ -172,3 +172,8 @@ cython_debug/
 
 # Day 38 generates a large log file
 days/**/big.log
+
+# Day 60's tool writes here when run with --write
+days/**/tidy-output/
+days/**/build-output/
+.coverage
